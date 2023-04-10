@@ -1,0 +1,23 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css);
+.product-card {
+  max-width: 350px;
+}
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.card-body img {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.card-body img:hover {
+  border: 2px solid #4a30bd;
+}
