@@ -14,24 +14,53 @@ const cartSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       const { productId, quantity } = action.payload;
-      console.log("Current State: " + state);
-      state.push({ productId, quantity });
-      
+      const cartItem = state.findIndex((item) => item.productId === +productId);
+      if (cartItem >= 0) {
+        state[cartItem].quantity += +quantity;
+      } else {
+        state.push({ productId, quantity });
+      }
     },
     removeItem: (state, action) => {
       const { id } = action.payload;
       const index = state.findIndex((el) => {
-        return el.productId === action.payload.id;
+        return el.productId === id;
       });
       console.log("Deleted item with index : " + index);
-
       state.splice(index, 1);
     },
-    incrementQuantity: (action, payload) => {},
-    decrementQuantity: (action, payload) => {},
+    incrementQuantity: (state, action) => {
+      const { id } = action.payload;
+      const index = state.findIndex((el) => {
+        return el.productId === id;
+      });
+      console.log(index);
+      state[index].quantity += +1;
+    },
+    decrementQuantity: (state, action) => {
+      const { id } = action.payload;
+      const index = state.findIndex((el) => {
+        return el.productId === id;
+      });
+      console.log(index);
+      state[index].quantity -= +1;
+    },
+  },
+  setQuantity: (state,action) => {
+    const { id, quantity } = action.payload;
+    const index = state.findIndex((el) => {
+      return el.productId === id;
+    });
+    console.log(index);
+    state[index].quantity =quantity;
   },
 });
 
-export const { addItem, removeItem, incrementQuantity, decrementQuantity } =
-  cartSlice.actions;
+export const {
+  addItem,
+  removeItem,
+  incrementQuantity,
+  decrementQuantity,
+  setQuantity,
+} = cartSlice.actions;
 export default cartSlice.reducer;

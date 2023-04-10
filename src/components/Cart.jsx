@@ -2,7 +2,7 @@ import React from "react";
 import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 const Cart = () => {
-  const cart = useSelector((state) => state.cartSlice);
+  const cart = useSelector((state) => state.cart);
   return (
     <section className="h-100" style={{ backgroundColor: "#eee" }}>
       <div className="container h-100 py-5">
@@ -20,11 +20,7 @@ const Cart = () => {
               </div>
             </div>
             {cart.map((item, index) => (
-              <CartItem
-                key={crypto.randomUUID()}
-                productId={item.productId}
-                productQuantity={item.quantity}
-              />
+              <CartItem key={crypto.randomUUID()} productId={item.productId} />
             ))}
 
             <div className="card mb-4">

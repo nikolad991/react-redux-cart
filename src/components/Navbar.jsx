@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
-  const cart = useSelector((state) => state.cartSlice);
+  const cart = useSelector((state) => state.cart);
   console.log(cart);
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
