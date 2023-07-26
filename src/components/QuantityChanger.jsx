@@ -50,7 +50,7 @@ const QuantityChanger = ({productId, cartItem}) => {
         </button>
       </div>
       <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-        <h5 className="mb-0">${cartItem.price}</h5>
+        <h5 className="mb-0">${cartItem?.price}</h5>
       </div>
       <div className="col-md-1 col-lg-1 col-xl-1 text-end">
         <a onClick={handleDelete} className="text-danger">
