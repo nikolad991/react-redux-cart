@@ -2,10 +2,13 @@ import { Link } from "react-router-dom";
 import RatingStars from "./RatingStars";
 import { useDispatch } from "react-redux";
 import { addItem } from "../redux/cartSlice";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const handleAddToCart = () => {
     dispatch(addItem({ productId: product.id, quantity: 1 }));
+    toast.success(`Product ${product.title} added to the cart.`);
   };
   return (
     <div className="product-card">
@@ -36,32 +39,7 @@ const ProductCard = ({ product }) => {
             <i className="fas fa-shopping-cart ms-1"></i>
           </button>
         </div>
-
-        {/* <div className="card-text text-center">
-          <Link className="btn btn-warning mb-3" to={"/product/" + product.id}>
-            Details
-          </Link>
-          <p>{product.description}</p>
-        </div>
-        <ul className="list-group list-group-flush">
-          <li className="list-group-item">Brand: {product.brand}</li>
-          <li className="list-group-item">Price: {product.price} $</li>
-          <li className="list-group-item">Rating: {product.rating} *</li>
-        </ul> */}
       </div>
-
-      {/* <div className="card-body">
-         {product.images.map((image, index) => (
-          <img
-            onClick={() => setPictureNumber(index)}
-            src={image}
-            alt=""
-            width={"100px"}
-            key={index}
-            loading="lazy"
-          />
-        ))} 
-      </div> */}
     </div>
   );
 };

@@ -8,7 +8,7 @@ const RatingStars = ({ rating }) => {
       {Array.from({ length: wholeNumber }).map((item, index) => (
         <BiSolidStar key={index} />
       ))}
-      {fraction >= 0.5 && <BiSolidStarHalf />}
+      {fraction <= 0.5 && <BiSolidStarHalf />}
     </div>
   );
 };
