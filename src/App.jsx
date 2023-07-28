@@ -10,7 +10,7 @@ const router = createBrowserRouter(routes);
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    fetch("https://dummyjson.com/products")
+    fetch("https://dummyjson.com/products?limit=100")
       .then((res) => res.json())
       .then((data) => dispatch(setProducts(data.products)));
   }, []);

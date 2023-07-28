@@ -5,12 +5,21 @@ const productsSlice = createSlice({
   initialState,
   reducers: {
     setProducts: (state, action) => {
-      console.log(action.payload);
-      state.push(...action.payload);
-      
-      console.log(state);
+      state.push(
+        ...action.payload.map((product) => ({ ...product, visible: true }))
+      );
+    },
+    filterProductsByCategory: (state, action) => {
+      const categories = action.payload.map((category) => category.name);
+
+      return state.map((product) => {
+        console.log(product.category);
+        if (!categories.includes(product.category))
+          return { ...product, visible: false };
+        else return { ...product, visible: true };
+      });
     },
   },
 });
-export const { setProducts } = productsSlice.actions;
+export const { setProducts, filterProductsByCategory } = productsSlice.actions;
 export default productsSlice.reducer;
