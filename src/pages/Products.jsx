@@ -9,11 +9,14 @@ const Products = () => {
 
   return (
     <div className="">
-      <div><Sidebar products={products} /></div>
+      <div>
+        <Sidebar products={products} />
+      </div>
       <div className="main p-5 gap-5 d-flex flex-wrap">
         {products?.map(
           (product, index) =>
-            product && product.visible && <ProductCard key={index} product={product} />
+            product &&
+            product.visible && <ProductCard key={index} product={product} />
         )}
       </div>
 

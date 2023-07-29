@@ -13,7 +13,6 @@ const productsSlice = createSlice({
       const categories = action.payload.map((category) => category.name);
 
       return state.map((product) => {
-        console.log(product.category);
         if (!categories.includes(product.category))
           return { ...product, visible: false };
         else return { ...product, visible: true };

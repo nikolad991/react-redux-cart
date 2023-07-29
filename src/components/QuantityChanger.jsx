@@ -1,21 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   removeItem,
   incrementQuantity,
   decrementQuantity,
   setQuantity,
 } from "../redux/cartSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const QuantityChanger = ({productId, cartItem}) => {
-    console.log("Cart item: "+productId);
-  const quantity = useSelector(
-    (state) =>
-      state.cart.find((item) => item.productId == productId).quantity
-  );
+const QuantityChanger = ({ productId, cartItem, quantity }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
-    console.log("Delete " + cartItem.id);
     dispatch(removeItem({ id: productId }));
   };
   const handleQuantityIncrement = () => {
@@ -27,6 +21,7 @@ const QuantityChanger = ({productId, cartItem}) => {
   const handleQuantityChange = () => {
     dispatch(setQuantity());
   };
+
   return (
     <>
       <div className="col-md-6 col-lg-6 col-xl-3 d-flex">
@@ -50,7 +45,7 @@ const QuantityChanger = ({productId, cartItem}) => {
         </button>
       </div>
       <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-        <h5 className="mb-0">${cartItem?.price}</h5>
+        <h5 className="mb-0">${cartItem?.price * quantity}</h5>
       </div>
       <div className="col-md-1 col-lg-1 col-xl-1 text-end">
         <a onClick={handleDelete} className="text-danger">

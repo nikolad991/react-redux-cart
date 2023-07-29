@@ -158,6 +158,60 @@ img {
   gap: 10px;
   align-items: center;
 }
+.cart {
+  margin-top: 100px;
+  background-color: white;
+  margin: 100px 100px;
+  border-radius: 12px;
+}
+.payment {
+  background-color: #565abb;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+
+  align-items: center;
+  padding: 20px;
+}
+.payment span {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+}
+.cards {
+  display: flex;
+  gap: 10px;
+  font-size: 60px;
+  align-items: center;
+}
+.card-type {
+  background-color: #7073c1;
+  padding: 5px;
+  border-radius: 8px;
+}
+.payment-field {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+.payment-field-lg {
+  width: 100%;
+}
+.payment-field input {
+  background-color: #7073c1;
+  border: 0;
+  padding: 5px;
+  border-radius: 4px;
+  color: white;
+}
+.payment-field input::placeholder {
+  color: white;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+}
 /* .card-body img {
   border-radius: 50%;
   width: 90px;
