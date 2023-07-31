@@ -10,12 +10,12 @@ const CartItem = ({ productId }) => {
   );
   return (
     <div className="card rounded-3 mb-4">
-      <div className="card-body p-4">
+      <div className=" text-black px-4 py-2">
         <div className="row d-flex justify-content-between align-items-center">
-          <div className="col-md-2 col-lg-2 col-xl-2">
+          <div className="cart-img">
             <img
               src={cartProduct?.thumbnail}
-              className="img-fluid h-100 w-100 rounded-3"
+             
             />
           </div>
           <div className="col-md-3 col-lg-3 col-xl-3">

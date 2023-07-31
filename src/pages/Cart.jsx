@@ -6,7 +6,6 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const products = useSelector((state) => state.products);
   const [total, setTotal] = useState(0);
-
   const calculateTotal = () => {
     return cart.reduce((acc, { productId, quantity }) => {
       const product = products.find((product) => product.id === productId);
@@ -19,28 +18,20 @@ const Cart = () => {
   }, [cart, products]);
   return (
     <section className="row cart">
-      <div className="col-md-8 ">
+      <div className="col-lg-8 ">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-10">
-            <div className="d-flex justify-content-between align-items-center mb-4">
+            <div className="d-flex justify-content-between align-items-center my-4">
               <h3 className="fw-normal mb-0 text-black">Shopping Cart</h3>
-              <div>
-                <p className="mb-0">
-                  <span className="text-muted">Sort by:</span>{" "}
-                  <a href="#!" className="text-body">
-                    price <i className="fas fa-angle-down mt-1"></i>
-                  </a>
-                </p>
-              </div>
             </div>
-            {console.log(cart)}
+
             {cart.map((item, index) => (
               <CartItem key={crypto.randomUUID()} productId={item.productId} />
             ))}
           </div>
         </div>
       </div>
-      <div className="text-white payment col-md-4 py-5">
+      <div className="text-white payment col-lg-4 py-5">
         <span>Card Details</span>
         <div className="cards">
           <FaCcPaypal className="card-type" />
@@ -62,7 +53,7 @@ const Cart = () => {
           </div>
           <div className="payment-field ">
             <label htmlFor="">CVV</label>
-            <input type="text" placeholder="Name" />
+            <input type="text" placeholder="123" />
           </div>
         </div>
         <div className="d-flex flex-column w-100">

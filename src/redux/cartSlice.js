@@ -1,12 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
-  { productId: 8, quantity: 1 },
-  { productId: 1, quantity: 3 },
-  { productId: 5, quantity: 2 },
-  { productId: 17, quantity: 5 },
-  { productId: 22, quantity: 7 },
-];
+const initialState = () => {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+};
 
 const cartSlice = createSlice({
   name: "cart",
@@ -26,7 +22,6 @@ const cartSlice = createSlice({
       const index = state.findIndex((el) => {
         return el.productId === id;
       });
-      console.log("Deleted item with index : " + index);
       state.splice(index, 1);
     },
     incrementQuantity: (state, action) => {
@@ -34,7 +29,6 @@ const cartSlice = createSlice({
       const index = state.findIndex((el) => {
         return el.productId === id;
       });
-      console.log(index);
       state[index].quantity += +1;
     },
     decrementQuantity: (state, action) => {
@@ -42,17 +36,15 @@ const cartSlice = createSlice({
       const index = state.findIndex((el) => {
         return el.productId === id;
       });
-      console.log(index);
-      state[index].quantity -= +1;
+      if (state[index].quantity > 1) state[index].quantity -= +1;
     },
   },
-  setQuantity: (state,action) => {
+  setQuantity: (state, action) => {
     const { id, quantity } = action.payload;
     const index = state.findIndex((el) => {
       return el.productId === id;
     });
-    console.log(index);
-    state[index].quantity =quantity;
+    state[index].quantity = quantity;
   },
 });
 

@@ -28,10 +28,10 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/cart">
+            <NavLink className="nav-link" to="/cart">
               <i className="fas fa-shopping-cart"></i>
               Cart ({cart.length})
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

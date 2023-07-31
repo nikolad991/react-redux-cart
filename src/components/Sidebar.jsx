@@ -42,23 +42,12 @@ const Sidebar = () => {
         return item;
       })
     );
+    
   };
 
   return (
     <div className=" sidebar d-flex flex-column position-fixed px-4">
       <div>
-        <div className="sidebar-item">
-          {" "}
-          <input
-            type="checkbox"
-            id="all"
-            name="all"
-            onChange={handleCheck}
-            defaultChecked
-          />
-          <label for="all">All</label>
-        </div>
-
         {categories.map((category, index) => (
           <div key={index} className="sidebar-item">
             <input
